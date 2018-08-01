@@ -1,0 +1,9 @@
+---
+slug: :fcm
+depends:
+  mikutter: 3.7.4
+  plugin: []
+version: '1.0.0'
+author: yuzumone
+name: fcm
+description: Firebase Cloud Messagingの通知を投げるイベントを提供します
