@@ -15,7 +15,9 @@ git clone https://github.com/yuzumone/mikutter_fcm.git ~/.mikutter/plugin/fcm
 ```
 
 ## 例
-mikutter起動時に通知を投げる例を以下に示します．  
+
+### mikutter起動時に通知を投げる
+
 なおtitle，body，urlはすべて任意です．
 ```
 on_boot do
@@ -25,6 +27,24 @@ on_boot do
     :url => 'https://mikutter.hachune.net/'
   }
   Plugin.call(:fcm, data)
+end
+```
+
+### 通知にModelを使う
+
+fcmイベントは、任意の Diva::Model インスタンスを取ることができます。
+
+| Modelキー     | 意味                          |
+|---------------|-------------------------------|
+| `title`       | 通知のタイトル                |
+| `description` | 通知の本文                    |
+| `perma_link`  | 通知をタップしたときに開くURL |
+
+```
+on_boot do
+  on_favorite do |world, user, message|
+    Plugin.call(:fcm, message)
+  end
 end
 ```
 
