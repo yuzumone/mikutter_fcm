@@ -9,7 +9,7 @@ Plugin.create(:fcm) do
   on_fcm do |data|
     case data
     when Hash
-      send_fcm_from_hash(data)
+      send_fcm_from_hash(**data)
     when Diva::Model
       send_fcm_from_model(data)
     end
